@@ -7,7 +7,7 @@ from scipy.io.wavfile import write
 from styletts2.utils import *
 
 # Stolen and modifed from my webui https://github.com/JarodMica/StyleTTS-WebUI/blob/master/webui.py 
-def generate_audio(text, voice, reference_audio_file, seed, diffusion_steps, alpha, beta, embedding_scale, model_dict, device="cuda", voices_root="voices/styletts",):
+def generate_audio(text, voice, reference_audio_file, seed, diffusion_steps, alpha, beta, embedding_scale, model_dict, output_audio_path="results/output.wav", device="cuda", voices_root="voices/styletts", ):
     global_phonemizer = model_dict["global_phonemizer"]
     model = model_dict["model"]
     model_params = model_dict["model_params"]
@@ -35,8 +35,8 @@ def generate_audio(text, voice, reference_audio_file, seed, diffusion_steps, alp
         print(f"RTF = {rtf:5f}")
         print(f"{k} Synthesized:")
         os.makedirs("results", exist_ok=True)
-        audio_opt_path = os.path.join("results", f"{voice}_output.wav")
-        write(audio_opt_path, 24000, np.concatenate(audios))
+        # audio_opt_path = os.path.join("results", f"{voice}_output.wav")
+        write(output_audio_path, 24000, np.concatenate(audios))
     
 
-    return audio_opt_path
+    return output_audio_path
