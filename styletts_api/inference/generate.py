@@ -15,16 +15,11 @@ def generate_audio(text, voice, reference_audio_file, seed, diffusion_steps, alp
     textcleaner = model_dict["textcleaner"]
     to_mel = model_dict["to_mel"]
     
-    original_seed = int(seed)
     reference_audio_path = os.path.join(voices_root, voice, reference_audio_file)
     reference_dicts = {f'{voice}': f"{reference_audio_path}"}
     # noise = torch.randn(1, 1, 256).to(device)
+    set_seeds(seed)
     start = time.time()
-    if original_seed==-1:
-        seed_value = random.randint(0, 2**32 - 1)
-    else:
-        seed_value = original_seed
-    set_seeds(seed_value)
     for k, path in reference_dicts.items():
         mean, std = -4, 4
         ref_s = compute_style(path, model, to_mel, mean, std, device)
@@ -44,4 +39,4 @@ def generate_audio(text, voice, reference_audio_file, seed, diffusion_steps, alp
         write(audio_opt_path, 24000, np.concatenate(audios))
     
 
-    return audio_opt_path, [[seed_value]]
+    return audio_opt_path

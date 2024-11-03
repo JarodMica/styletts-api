@@ -23,6 +23,10 @@ pip install modules\StyleTTS2
 ```
 pip install .
 ```
+5. Install monotonic align
+```
+pip install git+https://github.com/resemble-ai/monotonic_align.git@78b985be210a03d08bc3acc01c4df0442105366f
+```
 
 ## Usage
 First, load any StyleTTS2 model with `load_all_models`.  You must follow the format specified here: [Model Folder Structure](#model-folder-structure)
