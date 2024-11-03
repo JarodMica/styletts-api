@@ -1,29 +1,26 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
-name = "tortoise-api"
+name = "styletts-api"
 version = "1.0"
 dependencies = [
-  "requests",
-  "sounddevice",
-  "soundfile",
-  "pyyaml",
-  "gradio==4.27",
-  "gradio_client"
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 authors = [
   {name = "Jarod Mica"}
 ]
 maintainers = [
   {name = "Jarod Mica"}
 ]
-description = "API for calling tortoise from ai-voice-cloning repo"
+description = "API for StyleTTS2 inference"
 readme = "README.md"
 license = {file = "LICENSE"}
 
+[tool.hatch.build]
+include = ["styletts_api"]
+
 [project.urls]
-Homepage = "https://github.com/JarodMica/tortoise_api"
-Repository = "https://github.com/JarodMica/tortoise_api.git"
+Homepage = "https://github.com/JarodMica/styletts-api"
+Repository = "https://github.com/JarodMica/styletts-api"
