@@ -1,0 +1,3 @@
+[submodule "modules/StyleTTS2"]
+	path = modules/StyleTTS2
+	url = https://github.com/JarodMica/StyleTTS2

@@ -1,0 +1,8 @@
+.vscode/
+results/
+engines/
+venv/
+StyleTTS2
+voices/
+
+*__pycache__
